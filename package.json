@@ -35,6 +35,10 @@
       "CPATH": {
         "scope": "global",
         "val": "#{self.install / 'include'}:$CPATH"
+      },
+      "PATH": {
+        "scope": "global",
+        "val": "#{self.bin}"
       }
     },
     "dependencies": {
