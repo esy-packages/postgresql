@@ -12,13 +12,29 @@
     "install": "make install",
     "buildsInSource": true,
     "exportedEnv": {
-      "LD_LIBRARY_PATH": {
-        "val": "#{self.lib : '$LD_LIBRARY_PATH'}",
-        "scope": "global"
-      },
       "PKG_CONFIG_PATH": {
         "val": "#{self.lib / 'pkgconfig'}",
         "scope": "global"
+      },
+      "LDFLAGS": {
+        "scope": "global",
+        "val": "-L#{self.lib} -lpq"
+      },
+      "CPPFLAGS": {
+        "scope": "global",
+        "val": "-I#{self.install / 'include'}"
+      },
+      "LD_LIBRARY_PATH": {
+        "scope": "global",
+        "val": "#{self.lib}:$LD_LIBRARY_PATH"
+      },
+      "LIBRARY_PATH": {
+        "scope": "global",
+        "val": "#{self.lib}:$LIBRARY_PATH"
+      },
+      "CPATH": {
+        "scope": "global",
+        "val": "#{self.install / 'include'}:$CPATH"
       }
     },
     "dependencies": {
