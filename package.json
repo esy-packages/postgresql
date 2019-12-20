@@ -13,7 +13,7 @@
     "buildsInSource": true,
     "exportedEnv": {
       "LD_LIBRARY_PATH": {
-        "val": "#{self.lib : $LD_LIBRARY_PATH}",
+        "val": "#{self.lib : '$LD_LIBRARY_PATH'}",
         "scope": "global"
       },
       "PKG_CONFIG_PATH": {
@@ -22,9 +22,7 @@
       }
     },
     "dependencies": {
-      "@opam/conf-libssl": "esy-packages/esy-openssl:package.json#77c1dbe",
-      "@opam/conf-autoconf": "esy-packages/esy-autoconf:package.json#fb93edf",
-      "@opam/conf-pkg-config": "*"
+      "@opam/conf-libssl": "esy-packages/esy-openssl:package.json#d15ecb1"
     }
   }
 }
