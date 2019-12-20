@@ -22,7 +22,7 @@
       }
     },
     "dependencies": {
-      "@opam/conf-libssl": "esy-packages/esy-openssl:package.json#d15ecb1"
+      "@opam/conf-libssl": "esy-packages/esy-openssl:package.json#77c1dbe"
     }
   }
 }
