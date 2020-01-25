@@ -38,7 +38,7 @@
       },
       "PATH": {
         "scope": "global",
-        "val": "#{self.bin}"
+        "val": "#{self.bin}:$PATH"
       }
     },
     "dependencies": {
