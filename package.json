@@ -42,6 +42,7 @@
       }
     },
     "dependencies": {
+      "esy-readline": "esy-packages/esy-readline",
       "@opam/conf-libssl": "esy-packages/esy-openssl:package.json#77c1dbe"
     }
   }
