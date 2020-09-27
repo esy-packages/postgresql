@@ -5,6 +5,9 @@
   "license": "PostgreSQL Licence",
   "source": "https://ftp.postgresql.org/pub/source/v9.6.16/postgresql-9.6.16.tar.gz#911d4efc0c428875c1928f98c72e426d22231e59",
   "override": {
+    "buildEnv": {
+      "PKG_CONFIG_PATH": "#{esy-readline.lib / 'pkgconfig' : $PKG_CONFIG_PATH}" 
+    },
     "build": [
       "./configure --prefix=$cur__install --with-openssl --disable-debug --enable-thread-safety --with-includes=$OPENSSL_INCLUDE_PATH --with-libraries=$OPENSSL_LIB_PATH",
       "make"
