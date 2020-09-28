@@ -9,7 +9,7 @@
       "PKG_CONFIG_PATH": "#{esy-readline.lib / 'pkgconfig' : $PKG_CONFIG_PATH}" 
     },
     "build": [
-      "./configure --prefix=$cur__install --with-openssl --disable-debug --enable-thread-safety",
+      "./configure --prefix=$cur__install --with-openssl --without-readline --disable-debug --enable-thread-safety",
       "make"
     ],
     "install": "make install",
