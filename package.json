@@ -11,7 +11,7 @@
       "LDFLAGS": "-L#{esy-openssl.lib} -lcrypto $LDFLAGS"
     },
     "build": [
-      "./configure --prefix=$cur__install --with-openssl --without-readline --disable-debug --enable-thread-safety",
+      "./configure #{os == 'windows' ? '--host x86_64-w64-mingw32': '' } --prefix=$cur__install --with-openssl --without-readline --disable-debug --enable-thread-safety",
       "make"
     ],
     "install": "make install",
