@@ -5,8 +5,13 @@
   "license": "PostgreSQL Licence",
   "source": "https://ftp.postgresql.org/pub/source/v9.6.16/postgresql-9.6.16.tar.gz#911d4efc0c428875c1928f98c72e426d22231e59",
   "override": {
+    "buildEnv": {
+      "PKG_CONFIG_PATH": "#{esy-readline.lib / 'pkgconfig' : $PKG_CONFIG_PATH}",
+      "CFLAGS": "-I#{esy-openssl.install / 'include'} $CFLAGS",
+      "LDFLAGS": "-L#{esy-openssl.lib} -lcrypto $LDFLAGS"
+    },
     "build": [
-      "./configure --prefix=$cur__install --with-openssl --disable-debug --enable-thread-safety --with-includes=$OPENSSL_INCLUDE_PATH --with-libraries=$OPENSSL_LIB_PATH",
+      "./configure --prefix=$cur__install --with-openssl --without-readline --disable-debug --enable-thread-safety",
       "make"
     ],
     "install": "make install",
@@ -42,7 +47,9 @@
       }
     },
     "dependencies": {
-      "@opam/conf-libssl": "esy-packages/esy-openssl:package.json#77c1dbe"
+      "esy-zlib": "esy-packages/esy-zlib",
+      "esy-readline": "esy-packages/esy-readline",
+      "esy-openssl": "esy-packages/esy-openssl"
     }
   }
 }
