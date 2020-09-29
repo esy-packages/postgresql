@@ -7,8 +7,8 @@
   "override": {
     "buildEnv": {
       "PKG_CONFIG_PATH": "#{esy-readline.lib / 'pkgconfig' : $PKG_CONFIG_PATH}",
-      "CFLAGS": "-I#{@opam/conf-libssl.install / 'include'} $CFLAGS",
-      "LDFLAGS": "-L#{@opam/conf-libssl.lib} -lcrypto $LDFLAGS"
+      "CFLAGS": "-I#{esy-openssl.install / 'include'} $CFLAGS",
+      "LDFLAGS": "-L#{esy-openssl.lib} -lcrypto $LDFLAGS"
     },
     "build": [
       "./configure --prefix=$cur__install --with-openssl --without-readline --disable-debug --enable-thread-safety",
@@ -49,7 +49,7 @@
     "dependencies": {
       "esy-zlib": "esy-packages/esy-zlib",
       "esy-readline": "esy-packages/esy-readline",
-      "@opam/conf-libssl": "esy-packages/esy-openssl:package.json#77c1dbe"
+      "esy-openssl": "esy-packages/esy-openssl"
     }
   }
 }
