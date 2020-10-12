@@ -22,7 +22,7 @@
       },
       "LDFLAGS": {
         "scope": "global",
-        "val": "-L#{self.lib} -lpq"
+        "val": "-L#{self.lib} -lpq $LDFLAGS"
       },
       "CPPFLAGS": {
         "scope": "global",
