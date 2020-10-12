@@ -1,16 +1,16 @@
 {
   "name": "postgresql",
-  "version": "9.6.16",
+  "version": "13.0.0",
   "description": "PostgreSQL packaged for Esy",
   "license": "PostgreSQL Licence",
-  "source": "https://ftp.postgresql.org/pub/source/v9.6.16/postgresql-9.6.16.tar.gz#911d4efc0c428875c1928f98c72e426d22231e59",
+  "source": "https://ftp.postgresql.org/pub/source/v13.0/postgresql-13.0.tar.gz#8862cfd6bbf1d0fe94552d702bc581fa4f866873",
   "override": {
     "buildEnv": {
       "CFLAGS": "-I#{esy-openssl.install / 'include'} $CFLAGS",
       "LDFLAGS": "-L#{esy-openssl.lib} -lcrypto $LDFLAGS"
     },
     "build": [
-      "./configure #{os == 'windows' ? '--host x86_64-w64-mingw32': '' } --prefix=$cur__install --with-openssl --without-readline --disable-debug --enable-thread-safety",
+      "./configure #{os == 'windows' ? '--host x86_64-w64-mingw32': '' } --prefix=$cur__install --with-openssl --without-readline --without-ldap --disable-debug --enable-thread-safety",
       "make"
     ],
     "install": "make install",
@@ -47,7 +47,7 @@
     },
     "dependencies": {
       "esy-zlib": "esy-packages/esy-zlib",
-      "esy-openssl": "esy-packages/esy-openssl"
+      "@reason-native-web/esy-openssl": "^1.1.1000"
     }
   }
 }
