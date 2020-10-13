@@ -10,7 +10,7 @@
       "LDFLAGS": "-L#{@reason-native-web/esy-openssl.lib} -lcrypto $LDFLAGS"
     },
     "build": [
-      "./configure #{os == 'windows' ? '--host x86_64-w64-mingw32': '' } --prefix=$cur__install --with-openssl --without-readline --without-ldap --disable-debug --enable-thread-safety",
+      "./configure #{os == 'windows' ? '--host x86_64-w64-mingw32': '' } --prefix=$cur__install --with-openssl --without-readline --without-ldap --disable-debug --enable-thread-safety --libdir=#{self.lib}",
       "make"
     ],
     "install": "make install",
